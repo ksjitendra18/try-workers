@@ -23,8 +23,11 @@ export default function Home(props) {
 // const res = await fetch(`${hostname}/api/hello`);
 export async function getServerSideProps() {
   // const res = await fetch(`http://localhost:3000/api/hello`);
-  const hostname = process.env.NEXT_PUBLIC_SITE_URL;
-  const res = await fetch(`${hostname}/api/hello`);
+  // const hostname = process.env.NEXT_PUBLIC_SITE_URL;
+  // const res = await fetch(`${hostname}/api/hello`);
+
+  const res = await fetch(`https://try-workers.pages.dev/api/hello`);
+
   const resData = await res.json();
   console.log(resData);
 
