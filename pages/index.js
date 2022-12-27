@@ -6,10 +6,6 @@ import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
-  const router = useRouter();
-  console.log(props);
-  // ${window.location.hostname}
-
   return (
     <>
       <Head>
@@ -23,10 +19,10 @@ export default function Home(props) {
   );
 }
 
+// const hostname = process.env.NEXT_PUBLIC_SITE_URL;
+// const res = await fetch(`${hostname}/api/hello`);
 export async function getServerSideProps() {
-  const hostname = process.env.NEXT_PUBLIC_SITE_URL;
-  // const res = await fetch(`http://localhost:3000/api/hello`);
-  const res = await fetch(`${hostname}/api/hello`);
+  const res = await fetch(`http://localhost:3000/api/hello`);
   const resData = await res.json();
   console.log(resData);
 
